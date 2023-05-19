@@ -1,13 +1,9 @@
 {
   "index": "Introduction",
   "forms": "Form Components",
-  "ui": "UI Components", 
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
+  "ui": "UI Components",
   "project-bubblegum": {
-    "title": "Bubblegum Template ↗",
+    "title": "Bubblegum Project Template ↗",
     "type": "page",
     "href": "https://bubblegum-template.vercel.app/",
     "newWindow": true

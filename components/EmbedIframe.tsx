@@ -5,7 +5,7 @@ const EmbedIframe = ( {url} ) => (
     style={{ border: '1px solid rgba(0, 0, 0, 0.1)', borderRadius: '2px' }}
     width="800"
     height="450"
-    src={url}
+    src={url + "&view=preview"}
     allowFullScreen
   />
 )

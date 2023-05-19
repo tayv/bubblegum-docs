@@ -1,0 +1,101 @@
+import EmbedIframe from '/components/EmbedIframe'
+import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+ 
+ 
+<Callout emoji="🚧">
+  **Under Construction** This component is a work-in-progress.
+</Callout>
+
+# Radio Group
+
+The Radio Group's used to select a single option from a list. It's built around the [Radix UI Radio Group](https://radix-ui.com/primitives/docs/components/radio-group) for better accessibility.
+<br/>
+
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/affectionate-liskov-g0mh3d?embed=1"} />
+
+
+## Current Status
+
+- Built around Radix UI Radio Group primitive
+- Basic styling using Tailwind CSS
+- Four variants set via `type` prop: `standard`, `horizontal`, `button`, `buttonLarge`
+- Works as a controlled component when used within the [Field component](/forms/control/field)
+
+## Future
+
+- Add animations
+- Add visual polish
+- Improve responsive design for all common device sizes
+- Add darkmode support
+- Standardize color design token
+
+## Examples
+ 
+<Tabs items={['standard', 'horizontal', 'button', 'buttonLarge']} defaultIndex="3">
+  <Tab>
+    <Image src="/radioStandard.gif" alt="Radio Standard Example" width={175} height={175} style={{ borderRadius: '12px' }} />
+  </Tab>
+  <Tab>
+    <Image src="/radioHorizontal.gif" alt="Radio Horizontal Example" width={250} height={250} style={{ borderRadius: '12px' }} />
+  </Tab>
+  <Tab>
+    <Image src="/radioButton.gif" alt="Radio Button Example" width={400} height={400} style={{ borderRadius: '12px' }} />
+  </Tab>
+  <Tab>
+    <Image src="/radioButtonLarge.gif" alt="Radio Button Large Example" width={500} height={500} style={{ borderRadius: '12px' }} />
+  </Tab>
+</Tabs>
+
+
+## How to use
+
+### Make it controlled
+
+Wrap with Field component to add control:
+
+```jsx
+<Field
+  name="radioButton"
+  defaultValue="mario"
+  >
+  <Field.GroupLabel>Label text here:</Field.GroupLabel>
+  <Field.Control>
+    <RadioGroup
+      options={[
+        { value: "mario", label: "Mario", icon: <Wrench /> },
+        { value: "luigi", label: "Luigi", icon: <Flashlight /> },
+        { value: "wario", label: "Wario", icon: <Zap /> },
+        { value: "waluigi", label: "Waluigi", icon: <Skull /> },
+      ]}
+      type="buttonLarge"
+    />
+  </Field.Control>
+</Field>
+```
+
+### How to customize
+
+#### Required props
+
+The `options` prop is an array of objects that determines the values and labels rendered. It also allows for an optional icon to be passed when `type="buttonLarge"`.
+
+```jsx
+  options={[
+    { value: string, label: string, icon: React Element },
+    { value: string, label: string, icon: React Element },
+  ]}
+```
+
+#### Optional props
+
+Customize appearance by passing an optional `type` prop. Defaults to `standard`.
+
+`type = "standard" | "horizontal" | "button" | "buttonLarge"{:jsx}`
+
+
+
+
+
+
