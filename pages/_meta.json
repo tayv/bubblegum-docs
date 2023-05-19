@@ -1,15 +1,16 @@
 {
   "index": "Introduction",
   "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "forms": "Form Components",
+  "ui": "UI Components", 
   "about": {
     "title": "About",
     "type": "page"
   },
-  "contact": {
-    "title": "Contact ↗",
+  "project-bubblegum": {
+    "title": "Bubblegum Template ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://bubblegum-template.vercel.app/",
     "newWindow": true
   }
 }
