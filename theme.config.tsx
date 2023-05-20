@@ -3,14 +3,6 @@ import { useConfig, DocsThemeConfig } from 'nextra-theme-docs'
 
 const OG_IMAGE_URL = "/bubblegum_logo.svg"
 export default {
-  // head: (
-  //   <>
-  //     <link rel="shortcut icon" href="/favicon.ico" />
-  //     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  //     <meta property="og:title" content="Bubblegum UI" />
-  //     <meta property="og:description" content="Documentation for React UI and Controlled Form Components" />
-  //   </>
-  // ),
   head() {
     const { frontMatter } = useConfig();
 
@@ -44,20 +36,23 @@ export default {
           }
         />
         <meta name="og:image" content={OG_IMAGE_URL} />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+        <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
       </>
-    );
+    )
   },
   useNextSeoProps() {
     return {
       titleTemplate: "%s – Bubblegum UI",
-    };
+    }
   },
   logo: (
-    <>
-      <img src="/bubblegum_logo.svg" alt="Bubblegum Logo" style={{ width: '34px', height: '34px' }}/>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img src="/bubblegum_logo.svg" alt="Bubblegum Logo" style={{ maxWidth: '3.2rem' }} />
       <span style={{ marginLeft: '.4em', fontWeight: 800 }}>Bubblegum UI</span>
-    </>
+    </div>
   ),
   primaryHue: 317,
   project: {
