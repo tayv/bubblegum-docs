@@ -2,6 +2,7 @@ import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
 import Image from 'next/image'
 import { Tab, Tabs } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
@@ -52,9 +53,9 @@ The Radio Group's used to select a single option from a list. It's built around 
 
 ### Make it controlled
 
-Wrap with Field component to add control:
+Wrap with [Field component](../control/field) to add control via React Hook Form:
 
-```jsx
+```jsx jsx filename="yourform.tsx"
 <Field
   name="radioButton"
   defaultValue="mario"
@@ -74,27 +75,23 @@ Wrap with Field component to add control:
 </Field>
 ```
 
-### How to customize
+### Customize appearance
 
 #### Required props
 
-The `options` prop is an array of objects that determines the values and labels rendered. It also allows for an optional icon to be passed when `type="buttonLarge"`.
-
-```jsx
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
   options={[
-    { value: string, label: string, icon: React Element },
-    { value: string, label: string, icon: React Element },
+    ['options',  `{ value: string, label: string, icon?: React Element }[]`, 'Determines values/labels rendered. Icons only used for type="buttonLarge" ']
   ]}
-```
+/>
 
 #### Optional props
 
-Customize appearance by passing an optional `type` prop. Defaults to `standard`.
-
-`type = "standard" | "horizontal" | "button" | "buttonLarge"{:jsx}`
-
-
-
-
-
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+    ['type',  `"standard" | "horizontal" | "button" | "buttonLarge"`, 'Change appearance of Radio Group']
+  ]}
+/>
 
