@@ -62,6 +62,16 @@ export default {
   //   link: 'https://discord.com',
   // },
   docsRepositoryBase: 'https://github.com/tayv/bubblegum-docs',
+  sidebar: {
+    titleComponent({ title, type }) {
+      if (type === 'separator') {
+        return <span className="cursor-default">{title}</span>
+      }
+      return <>{title}</>
+    },
+    defaultMenuCollapseLevel: 2,
+    toggleButton: true
+  },
   footer: {
     text: (
       <span>

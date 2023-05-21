@@ -1,7 +1,33 @@
 {
+
+  "-- Start": {
+    "type": "separator",
+    "title": "Get Started"
+  },
   "index": "Introduction",
-  "forms": "Form Components",
-  "ui": "UI Components",
+
+  "-- Form": {
+    "type": "separator",
+    "title": "Form Components"
+  },
+ 
+  "formControl": "Form Control",
+
+  "formCheckbox": "Checkbox",
+  "formDatePick": "Date Pick",
+  "formRadioGroup": "Radio Group",
+  "formSelect": "Select",
+  "formInput": "Input",
+  "formTextArea": "Text Area",
+
+  "-- UI": {
+    "type": "separator",
+    "title": "UI Components"
+  },
+
+  "uiHeading": "Headings",
+  "uiSectionCard": "Section Card",
+
   "project-bubblegum": {
     "title": "Bubblegum Project Template ↗",
     "type": "page",
