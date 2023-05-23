@@ -3,6 +3,7 @@ import { Callout } from 'nextra-theme-docs'
 import Image from 'next/image'
 import { Tab, Tabs } from 'nextra-theme-docs'
 import { OptionTable } from '/components/Table/index'
+import { Steps } from 'nextra-theme-docs'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
@@ -13,15 +14,14 @@ import { OptionTable } from '/components/Table/index'
 The Radio Group's used to select a single option from a list. It's built around the [Radix UI Radio Group](https://radix-ui.com/primitives/docs/components/radio-group) for better accessibility.
 <br/>
 
-<EmbedIframe url={"https://codesandbox.io/p/sandbox/affectionate-liskov-g0mh3d?embed=1"} />
-
-
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/bubblegumui-radiogroup-g0mh3d?embed=1"} />
+?
 ## Current Status
 
 - Built around Radix UI Radio Group primitive
 - Basic styling using Tailwind CSS
 - Four variants set via `type` prop: `standard`, `horizontal`, `button`, `buttonLarge`
-- Works as a controlled component when used within the [Field component](/forms/control/field)
+- Works as a controlled component when used within the [Field component](/formControl/formField)
 
 ## Future
 
@@ -51,16 +51,24 @@ The Radio Group's used to select a single option from a list. It's built around 
 
 ## How to use
 
+<Steps>
+
+### Install Radix Radio Group primitive
+
+```jsx copy
+npm install @radix-ui/react-radio-group
+```
+
 ### Make it controlled
 
-Wrap with [Field component](../control/field) to add control via React Hook Form:
+Wrap with [Field component](../formControl/formFieldField) to add control via React Hook Form:
 
-```jsx jsx filename="yourform.tsx"
+```jsx copy jsx filename="yourform.tsx"
 <Field
   name="radioButton"
   defaultValue="mario"
   >
-  <Field.GroupLabel>Label text here:</Field.GroupLabel>
+  <Field.GroupLabel>Group label text here:</Field.GroupLabel>
   <Field.Control>
     <RadioGroup
       options={[
@@ -75,9 +83,9 @@ Wrap with [Field component](../control/field) to add control via React Hook Form
 </Field>
 ```
 
-### Customize appearance
+</Steps>
 
-#### Required props
+### Component API
 
 <OptionTable
   headings={['Required Prop', 'Type', 'Description']}
@@ -85,8 +93,6 @@ Wrap with [Field component](../control/field) to add control via React Hook Form
     ['options',  `{ value: string, label: string, icon?: React Element }[]`, 'Determines values/labels rendered. Icons only used for type="buttonLarge" ']
   ]}
 />
-
-#### Optional props
 
 <OptionTable
   headings={['Optional Prop', 'Type', 'Description']}

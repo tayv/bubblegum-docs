@@ -1,5 +1,9 @@
 import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
+import { Steps } from 'nextra-theme-docs'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
@@ -7,10 +11,98 @@ import { Callout } from 'nextra-theme-docs'
 
 # Date Pick
 
-## Current state
+Date Picks can be used to choose single dates or date ranges. 
+<br/>
 
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/formdatepick-bubblegumui-ilpmzq?embed=1"} />
+?
+## Current Status
+
+- Built around Radix UI Accodion with a built-in input field to hold value.
+- Calendar styling using Tailwind CSS
+- Works as a controlled component when used within the [Field component](../formControl/formField)
 
 ## Future
 
+- More built-in layout options (vertical/horizontal)
+- Add warning messages if date range is potentially incorrect
+- Add animations
+- Improve responsive design for all common device sizes
+- Add darkmode support
+- Standardize color design token
 
-## Example
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+ 
+### Install date-fns library
+ 
+```js copy 
+npm install date-fns
+```
+It's used for date formatting.
+ 
+### Add child components
+ 
+Date Pick needs: [Accordion](../uiAccordion), [Calendar](../formCalendar), and [Input](../formInput)
+ 
+### Make it controlled
+
+Wrap with [Field component](../formControl/formField) to add control via React Hook Form:
+
+```jsx jsx filename="yourform.tsx"
+<Field
+  name="datePick"
+  defaultValue=""
+  >
+  <Field.GroupLabel>Group label text here:</Field.GroupLabel>
+  <Field.Control>
+    // Pass Date Pick here
+    <Field name="exampleDatePick" defaultValue="">
+      <Field.GroupLabel type="standard">Pick a date:</Field.GroupLabel>
+      <Field.Tip>Between 1990 and 2030</Field.Tip>
+      <Field.Control>
+        <DatePick startYearRange={1990} endYearRange={2030} />
+      </Field.Control>
+    </Field>
+  </Field.Control>
+</Field>
+```
+
+### Setup `defaultValues` and `zodSchema` in `Form`
+
+Details in [Form component](../formControl/form).
+
+<Callout type="warning" emoji="⚠️">
+  Use `date-fns`'s `format()` and `startOfToday()` to set the default value for consistent formatting.
+
+  ```
+  const defaultValues = {
+    exampleDatePick: format(startOfToday(), "MMM-dd-yyyy"),
+  }
+  ```
+</Callout>
+
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+    ['startYearRange', 'Number', `Sets earliest year in Date Pick's Calendar`],
+    ['endYearRange', 'Number', `Sets latest year in Date Pick's Calendar`]
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+    ['N/A', 'N/A', 'N/A']
+  ]}
+/>
+

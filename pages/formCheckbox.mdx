@@ -1,5 +1,9 @@
 import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { Steps } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
@@ -7,10 +11,75 @@ import { Callout } from 'nextra-theme-docs'
 
 # Checkbox
 
-## Current state
+Use checkbox's when you need the user to choose between an either/or option. It's built around the [Radix UI Checkbox](https://radix-ui.com/primitives/docs/components/checkbox) for better accessibility.
+<br/>
 
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/formcheckbox-bubblegumui-radix-rf7ffd?embed=1"} />
+?
+## Current Status
+
+- Built around Radix UI Checkbox primitive
+- Basic styling using Tailwind CSS
+- Works as a controlled component when used within the [Field component](../formControl/formField)
 
 ## Future
 
+- Add multi-select support
+- Add animations
+- Add visual polish
+- Improve responsive design for all common device sizes
+- Add darkmode support
+- Standardize color design token
 
-## Example
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+
+### Install Radix Checkbox primitive
+
+```js copy
+npm install @radix-ui/react-checkbox
+```
+
+### Make it controlled
+
+Wrap with [Field component](../formControl/formField) to add control via React Hook Form:
+
+```jsx copy jsx filename="yourform.tsx"
+<Field
+  name="checkbox"
+  defaultValue={true}
+  >
+  <Field.GroupLabel>Group label text here:</Field.GroupLabel>
+  <Field.Control>
+    <Checkbox>This is the checkbox's label</Checkbox>
+  </Field.Control>
+</Field>
+```
+
+### Setup `defaultValues` and `zodSchema` in `Form`
+
+Details in [Form component](../formControl/form)
+
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+   ['N/A', 'N/A', 'N/A']
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+      ['N/A', 'N/A', 'N/A']
+  ]}
+/>
+

@@ -13,11 +13,12 @@
  
   "formControl": "Form Control",
 
+  "formCalendar": "Calendar",
   "formCheckbox": "Checkbox",
   "formDatePick": "Date Pick",
+  "formInput": "Input",
   "formRadioGroup": "Radio Group",
   "formSelect": "Select",
-  "formInput": "Input",
   "formTextArea": "Text Area",
 
   "-- UI": {
@@ -25,7 +26,7 @@
     "title": "UI Components"
   },
 
-  "uiHeading": "Headings",
+  "uiAccordion": "Accordion",
   "uiSectionCard": "Section Card",
 
   "project-bubblegum": {
