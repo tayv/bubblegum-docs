@@ -1,5 +1,9 @@
 import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
+import { Steps } from 'nextra-theme-docs'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
@@ -7,10 +11,74 @@ import { Callout } from 'nextra-theme-docs'
 
 # Calendar
 
-## Current state
+Calendar is a primitive to be used by the [Date Pick component](../formDatePick). Displays an interactive calendar.
+<br/>
 
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/delicate-field-vjl1s5?embed=1"} />
+
+## Current Status
+
+- Built with date-fns, Radix UI Select, and Tailwind CSS
+- Intended to be used within the [Date Pick component](../formDatePick)
 
 ## Future
 
+- Add animations
+- Improve responsive design for all common device sizes
+- Add darkmode support
+- Standardize color design token
 
-## Example
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+ 
+### Install date-fns library
+ 
+```js copy 
+npm install date-fns
+```
+It's used for date formatting.
+
+### Install Radix UI Select
+ 
+```js copy 
+npm install @radix-ui/react-select
+```
+Used to build the year dropdown.
+
+### Create component
+
+Copy the code from the sandbox above and paste it into a new file (e.g. `Calendar.tsx`)
+ 
+### Use it with Date Pick
+
+Import it into [Date Pick](/formDatePick)
+
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+    ['name', 'string', `Date Pick's input name`],
+    ['startYearRange', 'Number', `Sets earliest year in Date Pick's Calendar`],
+    ['endYearRange', 'Number', `Sets latest year in Date Pick's Calendar`],
+    ['selectedDay', 'Date', `The currently selected day.`],
+    ['setSelectedDay', '(value: Date) => void', 'Updates selectedDay' ],
+    ['setShowCalendar', '(value: "CalendarClosed" | "CalendarOpen") => void', `Determines if Date Pick's Accordion should be open/closed. Can't be a boolean to match with Radix UI's props.`],
+    ['handleSelectedDayChange', '(name: string, selectedDay: Date) => void', `Handles logic whenever a Calendar day (aka button) is clicked`]
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+    ['defaultValue', 'Date', 'Passed from Field to Date Pick to Calendar. Determines the day the calendar selects by default.']
+  ]}
+/>
+
