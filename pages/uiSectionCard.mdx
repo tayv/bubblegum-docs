@@ -1,16 +1,81 @@
 import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
+import { Steps } from 'nextra-theme-docs'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
 </Callout>
 
-# Section
+# Card (Section)
+ Visually group related content. Intended to be used for sections within a page or form.
+<br/>
 
-## Current state
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/nice-field-xbqo53?embed=1"} />
 
+## Current Status
+
+- Has three main background styles: standard, transparent background, and color (predfined options + custom)
+- Styling is rough
+- Has an id so that it can be used for scroll navigation in future
 
 ## Future
 
+- Refactor for better dynamic styling options
+- Test responsive design for all common device sizes
+- Add darkmode support
+- Standardize color design token
 
-## Example
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+
+### Create component
+
+Copy the code from the sandbox above and paste it into a new file (e.g. `Accordion.tsx`)
+
+### Use it in your project
+
+```js copy
+ <CardSection id="exampleSection" style="standard">
+  // Child components go here
+ </CardSection>
+
+```
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+    ['id', 'string', `To allow for anchor links. Should be unique for each section.`],
+
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+    ['style?', 
+`| "standard"
+| "blank"
+| "colorBlue"
+| "colorRed"
+| "colorGreen"
+| "colorYellow"
+| "colorPurple"
+| "colorPink"
+| "colorBlack"
+| "colorCustom"`, 
+'Sets the background style of the card. Default is "standard".'
+    ],
+  ]}
+/>
+
