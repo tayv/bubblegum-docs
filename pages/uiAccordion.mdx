@@ -1,16 +1,90 @@
 import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
+import { Steps } from 'nextra-theme-docs'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
 </Callout>
 
 # Accordion
+ Typically used for displaying longer messages. Gives a way to present information without overwhelming the user. Built with [Radix UI's Accordion](https://radix-ui.com/primitives/docs/components/accordion).
+<br/>
 
-## Current state
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/intelligent-cerf-pjmsvb?embed=1"} />
 
+## Current Status
+
+- Built with Radix UI Accordion and Tailwind CSS
+- Works but very rough
+- Has three styles: standard, warning, and tip 
+- Allows for standalone accordion or grouped accordions that can be toggled independently or together
 
 ## Future
 
+- Refactor for better dynamic styling and improved code quality (a bit janky right now)
+- Add animations
+- Improve responsive design for all common device sizes
+- Add darkmode support
+- Standardize color design token
 
-## Example
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+
+### Install Radix UI Accordion
+ 
+```js copy 
+npm install @radix-ui/react-accordion
+```
+
+### Create component
+
+Copy the code from the sandbox above and paste it into a new file (e.g. `Accordion.tsx`)
+
+### Use it in your project
+
+```js copy
+ <Accordion
+  type="single"
+  items={[
+    {
+      value: "accordionSingleExample",
+      headerText: "This is a single Accordion",
+      contentText: "Write your details here.",
+    },
+  ]}
+/>
+
+```
+
+
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+    ['items', 'Array<{ value: string; headerText: string; contentText: string }>', `Each object in the array renders an accordion item. The value is used to identify the item.`],
+
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+     ['type?', `"single" | "multiple"`, 'Only for accordion groups. Defaults to single. Determines whether one or multiple items can be opened at the same time.'],
+     ['defaultValue?', "any", `🚧 WIP. Opens an Accordion by default. Use the value from the items object. Can only have one defaultValue per Accordion group. Note: the any type is used as a workaround for the Radix type and defaultValue prop not working together. Should be string | string[] | undefined.`],
+     ['collapsible?', 'boolean', 'Only for accordion groups. When false, prevents closing content by clicking heaader of an open item.'],
+     ['ToggleStyle?', `"standard" | "shrink"`, '🚧 WIP. Intended to change style of toggling an accordion'],
+     ['accordionStyle?', `"standard" | "warning" | "tip"`, `Changes the appearance. Defaults to standard if not passed.`]
+  ]}
+/>
+

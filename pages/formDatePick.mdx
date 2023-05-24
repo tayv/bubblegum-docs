@@ -18,7 +18,7 @@ Date Picks can be used to choose single dates or date ranges.
 ?
 ## Current Status
 
-- Built around Radix UI Accodion with a built-in input field to hold value.
+- Built around Radix UI's Accordion with a built-in input field to hold value.
 - Calendar styling using Tailwind CSS
 - Works as a controlled component when used within the [Field component](../formControl/formField)
 
@@ -44,7 +44,14 @@ TBD
 ```js copy 
 npm install date-fns
 ```
-It's used for date formatting.
+Used for date formatting.
+
+### Install Radix UI's Accordion
+ 
+```js copy 
+npm install @radix-ui/react-accordion
+```
+Used to hide/show the calendar.
 
 ### Create component
 
@@ -52,7 +59,7 @@ Copy the code from the sandbox above and paste it into a new file (e.g. `DatePic
  
 ### Add child components
  
-Date Pick needs: [Accordion](../uiAccordion), [Calendar](../formCalendar), and [Input](../formInput)
+Date Pick needs: [Calendar](../formCalendar) and [Input](../formInput)
  
 ### Make it controlled
 
