@@ -75,7 +75,7 @@ export default {
   footer: {
     text: (
       <span>
-        Bubblegum UI Components: 
+        Bubblegum UI: 
         <a href="https://mit-license.org/" target="_blank">
         {' '} MIT License {new Date().getFullYear()}
         </a>
