@@ -1,5 +1,9 @@
 import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { Steps } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
@@ -7,10 +11,112 @@ import { Callout } from 'nextra-theme-docs'
 
 # Select
 
-## Current state
+Used for selecting a single option from a list. It's built around the [Radix UI Select](https://www.radix-ui.com/docs/primitives/components/select) for better accessibility.
+<br/>
 
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/affectionate-dawn-gbi0nu?embed=1"} />
+
+## Current Status
+
+- Built around Radix UI Select primitive
+- Basic styling using Tailwind CSS
+- Works as a controlled component when used within the [Field component](../formControl/formField)
 
 ## Future
 
+- Add animations
+- Add visual polish
+- Improve responsive design for all common device sizes
+- Add darkmode support
+- Standardize color design token
 
-## Example
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+
+### Install Radix Select primitive
+
+```js copy
+npm install @radix-ui/react-select
+```
+
+### Create component
+
+Copy the code from the sandbox above and paste it into a new file (e.g. `Select.tsx`)
+
+### Make it controlled
+
+Wrap with [Field component](../formControl/formField) to add control via React Hook Form:
+
+```jsx copy jsx filename="yourform.tsx"
+  <Field
+    name="selectExample"
+    defaultValue="first"
+    validateOnBlur={false}
+  >
+    <Field.GroupLabel>Flat list Select:</Field.GroupLabel>
+    <Field.Control>
+      <Select
+        placeholder="Select an option"
+        itemOptions={[
+          {
+            value: "mj",
+            labelText: "Michael Jordan",
+            separator: false,
+          },
+          {
+            value: "shaq",
+            labelText: "Shaquille O'Neal",
+            separator: true,
+          },
+          {
+            value: "kobe",
+            labelText: "Kobe Bryant",
+            separator: false,
+          },
+          {
+            value: "iverson",
+            labelText: "Allen Iverson",
+            separator: false,
+          },
+        ]}
+      />
+    </Field.Control>
+  </Field>
+```
+
+### Setup `defaultValues` and `zodSchema` in `Form`
+
+Details in [Form component](../formControl/form)
+
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+   ['itemOptions', 'Array<FlatListItems | GroupListItems>', 'Will render Select with either flat or grouped list of items.'],
+   ['placeholder', 'string', 'The value displayed if there is no default value.']
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+     ['FlatListItems (itemOptions schema)', `{ 
+  value: string, 
+  labelText: string, 
+  separator: Boolean
+}`, 'This itemsOptions schema renders Select with a flat list of items.'],
+     ['GroupedListItems (itemOptions schema)', `{ 
+  groupLabel: string | null, 
+  items: Array<FlatListItems> 
+}`, 'This itemsOptions schema renders Select with a grouped list of items.'],
+  ]}
+/>
+
