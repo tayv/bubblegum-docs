@@ -1,5 +1,9 @@
 import EmbedIframe from '/components/EmbedIframe'
 import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { Steps } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
  
 <Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
@@ -7,10 +11,74 @@ import { Callout } from 'nextra-theme-docs'
 
 # Watch Field
 
-## Current state
+Used for conditionally rendering an input based on the value of another input. Is otherwise identical to the [Field component](../formControl/formField).
+<br/>
 
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/friendly-julien-cl1swo?file=%2Fapp%2Fpage.tsx%3A67%2C41?embed=1"} />
+
+## Current Status
+
+- Adds control to a component. Identical to [Field component](../formControl/formField)
 
 ## Future
 
+- Add support for conditions other than strict value equality
 
-## Example
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+
+### Create component
+
+Copy the code from the sandbox above and paste it into a new file (e.g. `WatchField.tsx`)
+
+### Add dependent components
+
+Needs [Field component](../formControl/formField)
+
+```jsx copy jsx filename="yourform.tsx"
+  <WatchField
+    conditionLogic={{
+      watchName: "radioExample",
+      watchValue: "suzuki",
+    }}
+    name="conditionalExample"
+  >
+    <Field.GroupLabel>WatchField Input:</Field.GroupLabel>
+    <Field.Tip>
+      This input is shown conditionally based on the specified watchValue of the watchName input.
+    </Field.Tip>
+    <Field.Control>
+      <Input type="text" />
+    </Field.Control>
+  </WatchField>
+```
+
+### Setup `defaultValues` and `zodSchema` in `Form`
+
+Details in [Form component](../formControl/form)
+
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+   ['conditionLogic', '{ watchName: string; watchValue: string }', 'The name and value of the input to watch.'],
+   ['name', 'string', `The input's name`],
+           
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+    ['validateOnBlur?', 'Boolean', 'If true then runs custom logic onBlur. 🚧 WIP.'],
+  ]}
+/>
+
