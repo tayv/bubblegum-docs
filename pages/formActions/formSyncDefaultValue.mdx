@@ -1,0 +1,84 @@
+import EmbedIframe from '/components/EmbedIframe'
+import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { Steps } from 'nextra-theme-docs'
+import { OptionTable } from '/components/Table/index'
+ 
+<Callout emoji="🚧">
+  **Under Construction** This component is a work-in-progress.
+</Callout>
+
+# Sync Default Values
+
+Used to sync the value of the wrapped input to another input. Will stop syncing once a manual selection is made on the wrapped field. Use case: matching the default value of an end date to the start date since the end date is always after the start date.
+<br/>
+
+<EmbedIframe url={"https://codesandbox.io/p/sandbox/formdatepick-bubblegumui-forked-7o2g3t?file=%2Fapp%2Fpage.tsx%3A75%2C12?embed=1"} />
+
+## Current Status
+
+- Syncs the value of the wrapped input to another input until a manual selection is made on the wrapped field.
+
+## Future
+
+- Add support for conditions such as strict matching values between fields
+
+## Examples
+ 
+TBD
+
+## How to use
+
+<Steps>
+
+### Create component
+
+Copy the code from the sandbox above and paste it into a new file (e.g. `SyncDefaultValue.tsx`)
+
+### Add dependent components
+
+Needs [Field component](../formControl/formField) and a child component like [Date Pick](../formDatePick)
+
+```jsx copy jsx filename="yourform.tsx"
+  <SyncDefaultValue
+    name="exampleDatePickEnd"
+    syncDefaultWith="exampleDatePickStart"
+  >
+    <Field name="exampleDatePickEnd" defaultValue="">
+        <Field.GroupLabel type="standard">End date:</Field.GroupLabel>
+        <Field.Control>
+            <DatePick startYearRange={1992} endYearRange={2025} />
+        </Field.Control>
+    </Field>
+  </SyncDefaultValue>
+```
+
+### Setup `defaultValues` and `zodSchema` in `Form`
+
+Details in [Form component](../formControl/form)
+
+</Steps>
+
+### Component API
+
+<OptionTable
+  headings={['Required Prop', 'Type', 'Description']}
+  options={[
+    ['name', 'string', 'Name of the wrapped field. This will be synced to the value of the syncDefaultWith input'],
+    ['syncDefaultWith', 'string', 'Name of the field to sync with.'],
+    ['children', 'Field or WatchField', 'Provides input functionality']       
+  ]}
+/>
+
+<OptionTable
+  headings={['Optional Prop', 'Type', 'Description']}
+  options={[
+    
+  ]}
+/>
+
+### Usage Notes
+
+- The wrapped input must use a [Field component](../formControl/formField) or a [WatchField component](../formControl/formWatchField)
+- Requires FormProvider be used in parent form 

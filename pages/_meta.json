@@ -10,8 +10,6 @@
     "type": "separator",
     "title": "Form Components"
   },
- 
-  "formControl": "Form Control",
 
   "formCalendar": "Calendar",
   "formCheckbox": "Checkbox",
@@ -20,6 +18,10 @@
   "formRadioGroup": "Radio Group",
   "formSelect": "Select",
   "formTextArea": "Text Area",
+
+  "formControl": "Form Control",
+  
+  "formActions": "Form Actions",
 
   "-- UI": {
     "type": "separator",
