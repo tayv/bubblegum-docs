@@ -1,20 +1,25 @@
-import EmbedIframe from '/components/EmbedIframe'
-import { Callout } from 'nextra-theme-docs'
-import Image from 'next/image'
-import { Tab, Tabs } from 'nextra-theme-docs'
-import { Steps } from 'nextra-theme-docs'
-import { OptionTable } from '/components/Table/index'
- 
-<Callout emoji="🚧">
+import EmbedIframe from "/components/EmbedIframe"
+import { Callout } from "nextra-theme-docs"
+import Image from "next/image"
+import { Tab, Tabs } from "nextra-theme-docs"
+import { Steps } from "nextra-theme-docs"
+import { OptionTable } from "/components/Table/index"
+
+;<Callout emoji="🚧">
   **Under Construction** This component is a work-in-progress.
 </Callout>
 
 # Watch Field
 
 Used for conditionally rendering an input based on the value of another input. Is otherwise identical to the [Field component](../formControl/formField).
-<br/>
 
-<EmbedIframe url={"https://codesandbox.io/p/sandbox/friendly-julien-cl1swo?file=%2Fapp%2Fpage.tsx%3A67%2C41?embed=1"} />
+<br />
+
+<EmbedIframe
+  url={
+    "https://codesandbox.io/p/sandbox/friendly-julien-cl1swo?file=%2Fapp%2Fpage.tsx%3A67%2C41?embed=1"
+  }
+/>
 
 ## Current Status
 
@@ -25,7 +30,7 @@ Used for conditionally rendering an input based on the value of another input. I
 - Add support for conditions other than strict value equality
 
 ## Examples
- 
+
 TBD
 
 ## How to use
@@ -41,21 +46,22 @@ Copy the code from the sandbox above and paste it into a new file (e.g. `WatchFi
 Needs [Field component](../formControl/formField)
 
 ```jsx copy jsx filename="yourform.tsx"
-  <WatchField
-    conditionLogic={{
-      watchName: "radioExample",
-      watchValue: "suzuki",
-    }}
-    name="conditionalExample"
-  >
-    <Field.GroupLabel>WatchField Input:</Field.GroupLabel>
-    <Field.Tip>
-      This input is shown conditionally based on the specified watchValue of the watchName input.
-    </Field.Tip>
-    <Field.Control>
-      <Input type="text" />
-    </Field.Control>
-  </WatchField>
+<WatchField
+  conditionLogic={{
+    watchName: "radioExample",
+    watchValue: "suzuki",
+  }}
+  name="conditionalExample"
+>
+  <Field.GroupLabel>WatchField Input:</Field.GroupLabel>
+  <Field.Tip>
+    This input is shown conditionally based on the specified watchValue of the
+    watchName input.
+  </Field.Tip>
+  <Field.Control>
+    <Input type="text" />
+  </Field.Control>
+</WatchField>
 ```
 
 ### Setup `defaultValues` and `zodSchema` in `Form`
@@ -67,18 +73,24 @@ Details in [Form component](../formControl/form)
 ### Component API
 
 <OptionTable
-  headings={['Required Prop', 'Type', 'Description']}
+  headings={["Required Prop", "Type", "Description"]}
   options={[
-   ['conditionLogic', '{ watchName: string; watchValue: string }', 'The name and value of the input to watch.'],
-   ['name', 'string', `The input's name`],
-           
+    [
+      "conditionLogic",
+      "{ watchName: string; watchValue: string | boolean | number }",
+      "The name and value of the input to watch.",
+    ],
+    ["name", "string", `The input's name`],
   ]}
 />
 
 <OptionTable
-  headings={['Optional Prop', 'Type', 'Description']}
+  headings={["Optional Prop", "Type", "Description"]}
   options={[
-    ['validateOnBlur?', 'Boolean', 'If true then runs custom logic onBlur. 🚧 WIP.'],
+    [
+      "validateOnBlur?",
+      "Boolean",
+      "If true then runs custom logic onBlur. 🚧 WIP.",
+    ],
   ]}
 />
-
